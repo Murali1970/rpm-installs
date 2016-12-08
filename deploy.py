@@ -78,7 +78,7 @@ def apply_rules (server):
   
    info = []
 
-   username = "jenkins" 
+   username = "ec2-user" 
    hostname = server         
  
    info.insert(0,hostname)

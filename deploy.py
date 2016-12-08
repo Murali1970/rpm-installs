@@ -21,7 +21,7 @@ def ssh_to_server(hostname, username, directory):
 
    private_key = paramiko.RSAKey.from_private_key_file (private_key_filename)
 
-   private_key = paramiko.from_private_key("/var/lib/jenkins/.ssh/, password=None)
+   private_key = paramiko.from_private_key("/var/lib/jenkins/.ssh/id_rsa", password=None)
 
    ssh.connect(hostname, username=username, password='', private_key)
 

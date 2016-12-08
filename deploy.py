@@ -23,7 +23,7 @@ def ssh_to_server(hostname, username, directory):
 
    private_key = paramiko.from_private_key("/var/lib/jenkins/.ssh/id_rsa", password=None)
 
-   ssh.connect(hostname, username=username, password='', private_key)
+   ssh.connect(hostname, username=username, password='', pkey=private_key)
 
    sftp = ssh.open_sftp()
   

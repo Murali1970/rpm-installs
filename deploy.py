@@ -17,7 +17,7 @@ def ssh_to_server(hostname, username, directory):
 
    print hostname, username 
 
-   ssh.connect(hostname, username=username, password='')
+   ssh.connect(hostname, username=username, password='', pkey = '/var/lib/jenkins/.ssh/id_rsa')
 
    sftp = ssh.open_sftp()
   

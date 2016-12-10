@@ -33,22 +33,22 @@ def ssh_to_server(hostname, username, directory):
    for file in listoffiles[2]:
       sftp.put(directory + "/" + file, "/tmp/" + file)
 
-   # execute a sample command 
-   stdin, stdout, stderr = ssh.exec_command("uptime")
-   print stdout.readlines()
-
-   # Get the package name which is the RPM file without the extension 
-   packagename = file[:len(file) - 4]
-   print "packagename", packagename
-   
-   stdin, stdout, stderr = ssh.exec_command('rpm -qa | grep ' + packagename)
-   if stdout == packagename:
-      print "package already installed"
-   else: 
-      # execute command to install RPM
-      stdin, stdout, stderr = ssh.exec_command("sudo rpm -ivh " + "/tmp/" + file)
+      # execute a sample command 
+      stdin, stdout, stderr = ssh.exec_command("uptime")
       print stdout.readlines()
-      print stderr.readlines()
+
+      # Get the package name which is the RPM file without the extension 
+      packagename = file[:len(file) - 4]
+      print "packagename", packagename
+   
+      stdin, stdout, stderr = ssh.exec_command('rpm -qa | grep ' + packagename)
+      if stdout == packagename:
+         print "package already installed"
+      else: 
+         # execute command to install RPM
+         stdin, stdout, stderr = ssh.exec_command("sudo rpm -ivh " + "/tmp/" + file)
+         print stdout.readlines()
+         print stderr.readlines()
 
 def trigger_run(): 
 
